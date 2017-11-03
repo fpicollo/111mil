@@ -3,6 +3,8 @@
 # Desarrollar una calculadora que realice suma, resta, multiplicación, división y potencia. Repetir hasta que el usuario
 # decida salir. Utilizar funciones.
 
+. functionLibrary1
+
 while : 
 do
 	result=0
@@ -15,28 +17,19 @@ do
 
 	case $operation in
 		s) 
-			result=$((number1 + number2))
+			add
 			;;
 		r) 
-			result=$((number1 - number2))
+			substract
 			;;
 		m)
-			result=$((number1 * number2))
+			multiply
 			;;
 		d)
-			if ((number2 != 0))
-			then
-				result=$((number1 / number2))
-			else
-				echo "ERROR! no se puede dividir por cero"
-			fi
+			divide
 			;;
 		p)
-			result=number1
-
-			for ((i = 1; i < number2; i++)) {
-				result=$((result * number1))
-			}
+			pow
 			;;
 		*)
 			echo "Opción incorrecta"
