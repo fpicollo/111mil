@@ -30,6 +30,7 @@ case $dayNumber in
 	*)
 		echo "ERROR"
 		exit 1
+		;;
 esac
 
 exit 0
