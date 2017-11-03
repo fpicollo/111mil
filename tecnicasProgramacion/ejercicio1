@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Desarrollar una calculadora que realice suma, resta, multiplicación, división y potencia. Repetir hasta que el usuario
+# decida salir. Utilizar funciones.
+
+while : 
+do
+	clear
+
+	read -p "Número: " number1
+	read -p "Operación (s, r, m, d, p): " operation
+	read -p "Número: " number2
+
+	case $operation in
+		s) 
+			result=$((number1 + number2))
+			;;
+		r) 
+			result=$((number1 - number2))
+			;;
+		m)
+			result=$((number1 * number2))
+			;;
+		d)
+			if ((number2 != 0))
+			then
+				result=$((number1 / number2))
+			else
+				echo "ERROR! no se puede dividir por cero"
+				result=0
+			fi
+			;;
+		p)
+			result=number1
+
+			for ((i = 1; i < number2; i++)) {
+				result=$((result * number1))
+			}
+			;;
+		*)
+			echo "Opción incorrecta"
+			;;
+	esac
+
+	echo
+	echo "Resultado: $result"
+	echo
+
+	read -p "Realizar otro cálculo? (s/n): " repeat
+
+	[ $repeat == "s" ] || break
+done
+
+exit 0
