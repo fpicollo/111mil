@@ -5,6 +5,8 @@
 
 while : 
 do
+	result=0
+
 	clear
 
 	read -p "Número: " number1
@@ -27,7 +29,6 @@ do
 				result=$((number1 / number2))
 			else
 				echo "ERROR! no se puede dividir por cero"
-				result=0
 			fi
 			;;
 		p)
