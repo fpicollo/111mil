@@ -9,23 +9,6 @@ function createMenu() {
 	echo
 }
 
-function newRegister() {
-	echo
-	read -p "Apellido: " surname[$currentIndex]
-	read -p "Nombre: " name[$currentIndex]
-	read -p "DNI: " dni[$currentIndex]
-	read -p "Dirección Postal: " postalAddress[$currentIndex]
-	read -p "Teléfono: " phone[$currentIndex]
-	read -p "email: " email[$currentIndex]
-	status[$currentIndex]="ACTIVE"
-
-	currentIndex=$((currentIndex + 1))
-
-	echo
-	echo "Alta exitosa..."
-	sleep 1
-}
-
 function create() {
 	while :
 	do
@@ -53,3 +36,21 @@ function create() {
 		[[ $createOption != "v" && $createOption != "V" ]] || break
 	done
 }
+
+function newRegister() {
+	echo
+	read -p "Apellido: " surname[$currentIndex]
+	read -p "Nombre: " name[$currentIndex]
+	read -p "DNI: " dni[$currentIndex]
+	read -p "Dirección Postal: " postalAddress[$currentIndex]
+	read -p "Teléfono: " phone[$currentIndex]
+	read -p "email: " email[$currentIndex]
+	status[$currentIndex]="ACTIVE"
+
+	currentIndex=$((currentIndex + 1))
+
+	echo
+	echo "Alta exitosa..."
+	sleep 1
+}
+
