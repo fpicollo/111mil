@@ -42,12 +42,12 @@ function searchByDNI() {
 	echo
 	read -p "DNI: " dniSearcher
 
-	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-		clear
-		echo "Resultados de la búsqueda"
-		echo "========== == == ========"
-		echo
+	clear
+	echo "Resultados de la búsqueda"
+	echo "========== == == ========"
+	echo
 
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
 		if ((dni[searchIndex] == dniSearcher))
 		then
 			showResult
