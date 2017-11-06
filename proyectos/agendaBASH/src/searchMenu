@@ -1,0 +1,72 @@
+function searchMenu() {
+	clear
+
+	echo "Búsqueda de Registros"
+	echo "======== == ========="
+	echo
+	echo " a) Búsqueda por apellido"
+	echo " n) Búsqueda por nombre"
+	echo " d) Búsqueda por DNI"
+	echo " v) Volver al menú anterior"
+	echo
+}
+
+function search() {
+	while :
+	do
+		searchMenu
+
+		read -p "Seleccione una opción: " searchOption
+
+		case $searchOption in
+			d | D)
+				searchByDNI
+				;;
+			v | V)
+				echo
+				echo "Volviendo..."
+				sleep 1
+				;;
+			*)
+				echo 
+				echo "ERROR! OPCION INCORRECTA"
+				sleep 1
+				;;
+		esac
+		
+		[[ $searchOption != "v" && $searchOption != "V" ]] || break
+	done
+}
+
+function searchByDNI() {
+	echo
+	read -p "DNI: " dniSearcher
+
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
+		clear
+		echo "Resultados de la búsqueda"
+		echo "========== == == ========"
+		echo
+
+		if ((dni[searchIndex] == dniSearcher))
+		then
+			showResult
+		fi
+
+		echo
+		read -p "Presione ENTER para continuar..."
+	}
+}
+
+function showResult() {
+	if [ ${status[searchIndex]} == "ACTIVE" ]
+	then
+		echo
+		echo "Apellido: ${surname[searchIndex]}"
+		echo "Nombre: ${name[searchIndex]}"
+		echo "DNI:  ${dni[searchIndex]}"
+		echo "Direccion: ${postalAddress[searchIndex]}"
+		echo "Teléfono: ${phone[searchIndex]}"
+		echo "email: ${email[searchIndex]}"
+	fi
+}

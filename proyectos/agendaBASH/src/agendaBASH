@@ -4,6 +4,7 @@ currentIndex=0
 
 . mainMenu
 . createMenu
+. searchMenu
 
 while :
 do
@@ -15,7 +16,9 @@ do
 		a | A)
 			create
 			;;
-
+		b | B)
+			search
+			;;
 		s | S)
 			echo
 			echo "Gracias!"
