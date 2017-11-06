@@ -1,0 +1,33 @@
+#!/bin/bash
+
+currentIndex=0
+
+. mainMenu
+. createMenu
+
+while :
+do
+	mainMenu
+
+	read -p "Seleccione una opción: " mainOption
+
+	case $mainOption in
+		a | A)
+			create
+			;;
+
+		s | S)
+			echo
+			echo "Gracias!"
+			echo
+			;;
+		*)
+			echo
+			echo "ERROR! OPCION INCORRECTA"
+			sleep 1
+	esac
+
+	[[ $mainOption != "s" && $mainOption != "S" ]] || break
+done
+
+exit 0

@@ -1,0 +1,55 @@
+function createMenu() {
+	clear
+
+	echo "Alta de registros"
+	echo "==== == ========="
+	echo
+	echo " a) Alta de nuevo registro"
+	echo " v) Volver al menú anterior"
+	echo
+}
+
+function newRegister() {
+	echo
+	read -p "Apellido: " surname[$currentIndex]
+	read -p "Nombre: " name[$currentIndex]
+	read -p "DNI: " dni[$currentIndex]
+	read -p "Dirección Postal: " postalAddress[$currentIndex]
+	read -p "Teléfono: " phone[$currentIndex]
+	read -p "email: " email[$currentIndex]
+	status[$currentIndex]="ACTIVE"
+
+	currentIndex=$((currentIndex + 1))
+
+	echo
+	echo "Alta exitosa..."
+	sleep 1
+}
+
+function create() {
+	while :
+	do
+		createMenu
+
+		read -p "Elija una opción: " createOption
+
+		case $createOption in
+			a | A) 
+				newRegister
+				;;
+
+			v | V)
+				echo
+				echo "Volviendo..."
+				sleep 1
+				;;
+			*)
+				echo 
+				echo "ERROR! OPCION INCORRECTA"
+				echo
+				;;
+		esac
+
+		[[ $createOption != "v" && $createOption != "V" ]] || break
+	done
+}
