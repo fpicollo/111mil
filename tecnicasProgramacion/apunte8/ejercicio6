@@ -3,7 +3,7 @@
 # Desarrollar una calculadora que realice suma, resta, multiplicación, división y potencia. Repetir hasta que el usuario
 # decida salir. Utilizar funciones.
 
-. functionLibrary1
+. functionLibrary6
 
 while : 
 do
