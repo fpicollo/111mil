@@ -6,7 +6,8 @@
 -- * Cilindrada del motor.
 -- * Tipo (Sedán o Coupe).
 -- 
--- Cargar 20 registros. Escribir una consulta que me muestre las patentes de todos los vehículos cuya cilindrada sea superior a 1200cc.
+-- Cargar 20 registros. Escribir una consulta que me muestre las patentes de todos los vehículos 
+-- cuya cilindrada sea superior a 1200cc.
 
 CREATE TABLE vehicle (
 	patent              text,
