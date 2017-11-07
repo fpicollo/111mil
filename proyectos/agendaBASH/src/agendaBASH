@@ -1,10 +1,13 @@
 #!/bin/bash
 
-currentIndex=0
-
 . mainMenu
 . createMenu
 . searchMenu
+. loadSave
+
+loadData
+
+currentIndex=${#status[@]}
 
 while :
 do
@@ -32,5 +35,7 @@ do
 
 	[[ $mainOption != "s" && $mainOption != "S" ]] || break
 done
+
+saveData 
 
 exit 0

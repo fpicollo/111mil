@@ -7,6 +7,7 @@ function searchMenu() {
 	echo " a) Búsqueda por apellido"
 	echo " n) Búsqueda por nombre"
 	echo " d) Búsqueda por DNI"
+	echo " t) Mostrar todos los registros"
 	echo " v) Volver al menú anterior"
 	echo
 }
@@ -22,10 +23,10 @@ function search() {
 			d | D)
 				searchByDNI
 				;;
+			t | T)
+				showAll
+				;;
 			v | V)
-				echo
-				echo "Volviendo..."
-				sleep 1
 				;;
 			*)
 				echo 
@@ -39,26 +40,41 @@ function search() {
 }
 
 function searchByDNI() {
+	local searchIndex
+	
 	echo
 	read -p "DNI: " dniSearcher
 
 	clear
 	echo "Resultados de la búsqueda"
 	echo "========== == == ========"
-	echo
 
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
 		if ((dni[searchIndex] == dniSearcher))
 		then
-			showResult
+			showResult $searchIndex
 		fi
-
-		echo
-		read -p "Presione ENTER para continuar..."
 	}
+	
+	read -p "Presione ENTER para continuar..."
+}
+
+function showAll() {
+	local searchIndex
+	clear
+	echo "Resultados de la búsqueda"
+	echo "========== == == ========"
+
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
+		showResult $searchIndex
+	}
+	
+	read -p "Presione ENTER para continuar..."
 }
 
 function showResult() {
+	local searchIndex=$1
+	
 	if [ ${status[searchIndex]} == "ACTIVE" ]
 	then
 		echo
@@ -68,5 +84,6 @@ function showResult() {
 		echo "Direccion: ${postalAddress[searchIndex]}"
 		echo "Teléfono: ${phone[searchIndex]}"
 		echo "email: ${email[searchIndex]}"
+		echo
 	fi
 }

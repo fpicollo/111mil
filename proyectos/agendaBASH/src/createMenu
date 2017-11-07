@@ -23,8 +23,6 @@ function create() {
 
 			v | V)
 				echo
-				echo "Volviendo..."
-				sleep 1
 				;;
 			*)
 				echo 
