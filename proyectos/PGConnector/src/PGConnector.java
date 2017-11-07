@@ -50,23 +50,24 @@ public final class PGConnector {
 	}
 	
 	public boolean execute(String queryString) {
-		Statement Query;
+		Statement Query = null;
 		
 		try {
 			Query = dbConnection.createStatement();
 			Query.execute(queryString);
-			Query.close();
 			
 			return true;
 		} catch(SQLException e) {
 			showError(e);
 			
 			return false;
+		} finally {
+			try { Query.close(); } catch (Exception e){ showError(e); }
 		}
 	}
 	
 	public List<Map<String, Object>> executeQuery(String queryString) {
-		Statement Query;
+		Statement Query = null;
 		ResultSet result = null;
 		
 		List<Map<String, Object>> resultList = new ArrayList<Map<String, Object>>();
@@ -84,16 +85,18 @@ public final class PGConnector {
 				row = new HashMap<String, Object>();
 				
 				for(int i = 1; i < columnCount; i++) {
-					row.put(metaData.getColumnName(i), result.getString(i));
+					row.put(metaData.getColumnName(i), result.getObject(i));
 				}
 				
 				resultList.add(row);
 			}
-			
-			result.close();
 		} catch (SQLException e) {
 			showError(e);
+		} finally {
+			try { result.close(); } catch (Exception e) { showError(e); }
+			try { Query.close(); } catch (Exception e) { showError(e); }
 		}
+		
 		return resultList;
 	}
 	
