@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Crear una función que devuelva el valor lógico "verdadero" o "falso" según si el número que se indique como 
+# parámetro es par o no lo es.
+
+function isEven() {
+	local number=$1
+
+	if ((number % 2 == 0))
+	then
+		echo true
+	else
+		echo false
+	fi
+}
+
+read -p "Número: " number
+
+echo $(isEven $number)
+
+exit 0

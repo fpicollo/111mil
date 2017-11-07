@@ -17,19 +17,19 @@ do
 
 	case $operation in
 		s) 
-			add
+			result=$(add $number1 $number2)
 			;;
 		r) 
-			substract
+			result=$(substract $number1 $number2)
 			;;
 		m)
-			multiply
+			result=$(multiply $number1 $number2)
 			;;
 		d)
-			divide
+			result=$(divide $number1 $number2)
 			;;
 		p)
-			pow
+			result=$(pow $number1 $number2)
 			;;
 		*)
 			echo "Opción incorrecta"
