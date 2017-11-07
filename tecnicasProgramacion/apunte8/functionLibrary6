@@ -1,4 +1,4 @@
-# Biblioteca de funciones apunte 8, ejercicio1 
+# Biblioteca de funciones apunte 8, ejercicio6
 
 function add() {
 	local number1=$1
