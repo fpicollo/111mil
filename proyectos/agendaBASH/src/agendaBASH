@@ -5,9 +5,19 @@
 . searchMenu
 . persistence
 
+declare -g -a surname
+declare -g -a name
+declare -g -a -i dni
+declare -g -a postalAddress
+declare -g -a phone
+declare -g -a email
+declare -g -a status
+
 loadData
 
-currentIndex=${#status[@]}
+declare -g -i currentIndex=${#status[@]}
+
+declare mainOption
 
 while :
 do

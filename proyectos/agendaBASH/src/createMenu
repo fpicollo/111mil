@@ -10,7 +10,7 @@ function createMenu() {
 }
 
 function create() {
-	local createOption 
+	declare createOption 
 
 	while :
 	do

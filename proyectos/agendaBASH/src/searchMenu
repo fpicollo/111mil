@@ -13,7 +13,7 @@ function searchMenu() {
 }
 
 function search() {
-	local searchOption
+	declare searchOption
 
 	while :
 	do
@@ -42,8 +42,8 @@ function search() {
 }
 
 function searchByDNI() {
-	local searchIndex
-	local dniSearcher
+	declare searchIndex
+	declare dniSearcher
 	
 	echo
 	read -p "DNI: " dniSearcher
@@ -63,7 +63,8 @@ function searchByDNI() {
 }
 
 function showAll() {
-	local searchIndex
+	declare searchIndex
+
 	clear
 	echo "Resultados de la búsqueda"
 	echo "========== == == ========"
@@ -76,7 +77,7 @@ function showAll() {
 }
 
 function showResult() {
-	local searchIndex=$1
+	declare searchIndex=$1
 	
 	if [ ${status[searchIndex]} == "ACTIVE" ]
 	then
