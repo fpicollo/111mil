@@ -23,6 +23,7 @@ function saveData() {
 
 function loadData() {
 	declare dataLine
+	declare -i currentIndex
 
 	if [[ -f surname.db && -f name.db && -f dni.db && -f postalAddress.db && -f phone.db && -f status.db && -f email.db ]]
 	then
