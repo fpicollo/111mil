@@ -22,6 +22,8 @@ function saveData() {
 }
 
 function loadData() {
+	local dataLine
+
 	if [[ -f surname.db && -f name.db && -f dni.db && -f postalAddress.db && -f phone.db && -f status.db && -f email.db ]]
 	then
 		currentIndex=0

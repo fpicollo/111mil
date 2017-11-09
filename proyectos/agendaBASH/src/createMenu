@@ -28,7 +28,7 @@ function create() {
 			*)
 				echo 
 				echo "ERROR! OPCION INCORRECTA"
-				echo
+				sleep 1
 				;;
 		esac
 

@@ -13,6 +13,8 @@ function searchMenu() {
 }
 
 function search() {
+	local searchOption
+
 	while :
 	do
 		searchMenu
@@ -41,6 +43,7 @@ function search() {
 
 function searchByDNI() {
 	local searchIndex
+	local dniSearcher
 	
 	echo
 	read -p "DNI: " dniSearcher
