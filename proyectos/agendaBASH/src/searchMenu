@@ -47,7 +47,6 @@ function search() {
 function surnameSearch() {
 	declare searchIndex
 	declare surnameSearcher
-	declare keyword
 
 	echo
 	read -p "Apellido: " surnameSearcher
@@ -58,9 +57,8 @@ function surnameSearch() {
 	echo "========================"
 
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-		keyword=${surename[searchIndex]}
 
-		if [ $keyword == $surnameSearcher ]
+		if [ "$surname[searchIndex]}" == $surnameSearcher ]
 		then
 			showResult $searchIndex
 		fi
