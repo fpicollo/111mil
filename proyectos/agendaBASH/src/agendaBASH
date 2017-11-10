@@ -17,6 +17,10 @@ loadData
 
 declare -g -i currentIndex=${#status[@]}
 
+clear
+echo "$currentIndex registros cargados..."
+sleep 1
+
 declare mainOption
 
 while :
