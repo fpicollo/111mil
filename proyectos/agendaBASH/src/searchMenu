@@ -58,7 +58,7 @@ function surnameSearch() {
 
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
 
-		if [ "{$surname[searchIndex]}" == "$surnameSearcher" ]
+		if [ "${surname[searchIndex]}" == "$surnameSearcher" ]
 		then
 			showResult $searchIndex
 		fi
