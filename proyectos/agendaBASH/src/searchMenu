@@ -22,6 +22,9 @@ function search() {
 		read -p "Seleccione una opción: " searchOption
 
 		case $searchOption in
+			a | A)
+				surnameSearch
+				;;
 			d | D)
 				searchByDNI
 				;;
@@ -40,6 +43,32 @@ function search() {
 		[[ $searchOption != "v" && $searchOption != "V" ]] || break
 	done
 }
+
+function surnameSearch() {
+	declare searchIndex
+	declare surnameSearcher
+	declare keyword
+
+	echo
+	read -p "Apellido: " surnameSearcher
+
+	clear
+
+	echo "Resultado de la busqueda"
+	echo "========================"
+
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
+		keyword=${surename[searchIndex]}
+
+		if [ $keyword == $surnameSearcher ]
+		then
+			showResult $searchIndex
+		fi
+	}
+
+	read -p "Presione ENTER para continuar..."
+}
+
 
 function searchByDNI() {
 	declare searchIndex
