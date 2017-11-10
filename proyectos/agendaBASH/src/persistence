@@ -8,7 +8,7 @@ function saveData() {
 	rm -f email.db
 	
 	for ((i = 0; i < currentIndex; i++)) {
-		if [ ${status[i]} == "ACTIVE" ]
+		if [ "${status[i]}" == "ACTIVE" ]
 		then
 			echo ${surname[i]} >> surname.db
 			echo ${name[i]} >> name.db

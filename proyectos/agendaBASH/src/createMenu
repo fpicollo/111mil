@@ -32,7 +32,7 @@ function create() {
 				;;
 		esac
 
-		[[ $createOption != "v" && $createOption != "V" ]] || break
+		[[ "$createOption" != "v" && "$createOption" != "V" ]] || break
 	done
 }
 

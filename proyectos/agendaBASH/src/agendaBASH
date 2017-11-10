@@ -43,7 +43,7 @@ do
 			sleep 1
 	esac
 
-	[[ $mainOption != "s" && $mainOption != "S" ]] || break
+	[[ "$mainOption" != "s" && "$mainOption" != "S" ]] || break
 done
 
 saveData 
