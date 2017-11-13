@@ -65,8 +65,6 @@ function surnameSearch() {
 	}
 
 	read -p "Presione ENTER para continuar..."
-
-	echo "$searchIndex"
 }
 
 
@@ -88,9 +86,8 @@ function searchByDNI() {
 		fi
 	}
 	
+	echo "Posicion: $position"
 	read -p "Presione ENTER para continuar..."
-
-	echo "$searchIndex"
 }
 
 function showAll() {
@@ -120,5 +117,9 @@ function showResult() {
 		echo "Teléfono: ${phone[searchIndex]}"
 		echo "email: ${email[searchIndex]}"
 		echo
+
+		unset position
+		declare -g -i position=searchIndex
 	fi
+
 }
