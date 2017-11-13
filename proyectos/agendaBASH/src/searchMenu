@@ -86,7 +86,6 @@ function searchByDNI() {
 		fi
 	}
 	
-	echo "Posicion: $position"
 	read -p "Presione ENTER para continuar..."
 }
 
