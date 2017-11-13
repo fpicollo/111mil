@@ -26,7 +26,7 @@ function search() {
 				surnameSearch
 				;;
 			n | N)
-				searchName
+				searchByName
 				;;
 			d | D)
 				searchByDNI
@@ -92,9 +92,9 @@ function searchByDNI() {
 	read -p "Presione ENTER para continuar..."
 }
 
-function searchName() {
+function searchByName() {
 	declare searchIndex
-	declare searchName
+	declare searchByName
 
 	echo
 	read -p "Ingrese Nombre: " searchByName
