@@ -142,5 +142,9 @@ function showResult() {
 		echo "Teléfono: ${phone[searchIndex]}"
 		echo "email: ${email[searchIndex]}"
 		echo
+
+		unset position
+		declare -g -i position=searchIndex
 	fi
+
 }

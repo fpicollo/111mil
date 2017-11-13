@@ -4,6 +4,7 @@
 . createMenu
 . searchMenu
 . persistence
+. deleteMenu
 
 declare -g -a surname
 declare -g -a name
@@ -40,6 +41,9 @@ do
 			echo
 			echo "Gracias!"
 			echo
+			;;
+		e | E)
+			delete
 			;;
 		*)
 			echo
