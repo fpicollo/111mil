@@ -54,20 +54,7 @@ function surnameSearch() {
 	echo
 	read -p "Apellido: " surnameSearcher
 
-	clear
-
-	echo "Resultado de la busqueda"
-	echo "========================"
-
-	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-
-		if [ "${surname[searchIndex]}" == "$surnameSearcher" ]
-		then
-			showResult $searchIndex
-		fi
-	}
-
-	read -p "Presione ENTER para continuar..."
+	resultHeader $surenameSearcher "surname" 
 }
 
 
@@ -147,4 +134,23 @@ function showResult() {
 		declare -g -i position=searchIndex
 	fi
 
+}
+
+function resultHeader() {
+	declare keyword=$1
+	declare vectorName=$2
+	clear
+
+	echo "Resultado de la busqueda"
+	echo "========================"
+
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
+
+		if [ "${($vectorName)[searchIndex]}" == "$keyword" ]
+		then
+			showResult $searchIndex
+		fi
+	}
+
+	read -p "Presione ENTER para continuar..."
 }
