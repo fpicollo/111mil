@@ -25,6 +25,9 @@ function search() {
 			a | A)
 				surnameSearch
 				;;
+			n | N)
+				searchName
+				;;
 			d | D)
 				searchByDNI
 				;;
@@ -91,6 +94,28 @@ function searchByDNI() {
 	read -p "Presione ENTER para continuar..."
 }
 
+function searchName() {
+	declare searchIndex
+	declare searchName
+
+	echo
+	read -p "Ingrese Nombre: " searchByName
+
+	clear
+	echo "Resultado de la busqueda"
+	echo "========= == == ========"
+
+	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
+		if [ "${name[searchIndex]}" == "$searchByName" ]
+
+		then
+			showResult $searchIndex
+		fi
+	}
+
+	read -p "Presione Enter para continuar..."
+}
+
 function showAll() {
 	declare searchIndex
 
@@ -104,6 +129,7 @@ function showAll() {
 	
 	read -p "Presione ENTER para continuar..."
 }
+
 
 function showResult() {
 	declare searchIndex=$1
