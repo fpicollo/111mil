@@ -71,7 +71,7 @@ function surnameSearch() {
 function searchByDNI() {
 	declare searchIndex
 	declare dniSearcher
-	
+
 	echo
 	read -p "DNI: " dniSearcher
 
