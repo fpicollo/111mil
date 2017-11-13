@@ -23,16 +23,20 @@ function search() {
 
 		case $searchOption in
 			a | A)
-				surnameSearch
+				searchBySurname
+				read -p "Presione ENTER para continuar..."
 				;;
 			n | N)
 				searchByName
+				read -p "Presione ENTER para continuar..."
 				;;
 			d | D)
 				searchByDNI
+				read -p "Presione ENTER para continuar..."
 				;;
 			t | T)
 				showAll
+				read -p "Presione ENTER para continuar..."
 				;;
 			v | V)
 				;;
@@ -47,14 +51,14 @@ function search() {
 	done
 }
 
-function surnameSearch() {
+function searchBySurname() {
 	declare searchIndex
 	declare surnameSearcher
 
 	echo
 	read -p "Apellido: " surnameSearcher
 
-	resultHeader $surenameSearcher "surname" 
+	resultHeader "$surnameSearcher" ${surname[@]} 
 }
 
 
@@ -65,41 +69,20 @@ function searchByDNI() {
 	echo
 	read -p "DNI: " dniSearcher
 
-	clear
-	echo "Resultados de la búsqueda"
-	echo "========== == == ========"
-
-	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-		if ((dni[searchIndex] == dniSearcher))
-		then
-			showResult $searchIndex
-		fi
-	}
-	
-	read -p "Presione ENTER para continuar..."
+	resultHeader "$dniSearcher" "dni" 
 }
+
 
 function searchByName() {
 	declare searchIndex
-	declare searchByName
+	declare nameSearcher
 
 	echo
-	read -p "Ingrese Nombre: " searchByName
+	read -p "Ingrese Nombre: " nameSearcher
 
-	clear
-	echo "Resultado de la busqueda"
-	echo "========= == == ========"
-
-	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-		if [ "${name[searchIndex]}" == "$searchByName" ]
-
-		then
-			showResult $searchIndex
-		fi
-	}
-
-	read -p "Presione Enter para continuar..."
+	resultHeader "$nameSearcher" "name" 
 }
+
 
 function showAll() {
 	declare searchIndex
@@ -111,8 +94,6 @@ function showAll() {
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
 		showResult $searchIndex
 	}
-	
-	read -p "Presione ENTER para continuar..."
 }
 
 
@@ -138,19 +119,25 @@ function showResult() {
 
 function resultHeader() {
 	declare keyword=$1
-	declare vectorName=$2
+	shift
+	declare -a vector=("$@")
+
+	echo "${vector[@]}"
+	read -p "enter..."
+	echo $keyword
+	read -p "enter..."
+
+	declare -i searchIndex
+
 	clear
 
 	echo "Resultado de la busqueda"
 	echo "========================"
 
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
-
-		if [ "${($vectorName)[searchIndex]}" == "$keyword" ]
+		if [ "${vector[searchIndex]}" == "$keyword" ]
 		then
 			showResult $searchIndex
 		fi
 	}
-
-	read -p "Presione ENTER para continuar..."
 }

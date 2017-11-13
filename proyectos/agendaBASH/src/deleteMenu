@@ -4,6 +4,8 @@ function deleteMenu() {
 	echo "Eliminación de registros"
 	echo "=========== == ========="
 	echo
+	echo " a) Buscar por apellido"
+	echo " n) Buscar por nombre"
 	echo " d) Buscar por DNI"
 	echo " v) Volver al menú anterior"
 	echo
@@ -19,8 +21,8 @@ function delete() {
 		read -p "Elija una opción: " deleteOption
 
 		case $deleteOption in
-			d | D) 
-				deleteRegister
+			a | A | n | N | d | D) 
+				deleteRegister $deleteOption
 				;;
 
 			v | V)
@@ -37,13 +39,25 @@ function delete() {
 }
 
 function deleteRegister() {
-	searchByDNI
-	
+	declare searchOption=$1
+
+	case $searchOption in
+		a | A)
+			searchBySurname
+			;;
+		n | N)
+			searchByName
+			;;
+		d | D)
+			searchByDNI
+			;;
+	esac
+
 	while :
 	do
 		declare confirm 
 
-		read -p "¿Este es el registro? (s/n): " confirm
+		read -p "Borrar este registro? (s/n): " confirm
 		
 		[[ "$confirm" != "s" && "$confirm" != "S" && "$confirm" != "n" && "$confirm" != "N" ]] || break
 	done
