@@ -17,6 +17,10 @@ loadData
 
 declare -g -i currentIndex=${#status[@]}
 
+clear
+echo "$currentIndex registros cargados..."
+sleep 1
+
 declare mainOption
 
 while :
@@ -43,7 +47,7 @@ do
 			sleep 1
 	esac
 
-	[[ $mainOption != "s" && $mainOption != "S" ]] || break
+	[[ "$mainOption" != "s" && "$mainOption" != "S" ]] || break
 done
 
 saveData 
