@@ -58,7 +58,7 @@ function searchBySurname() {
 	echo
 	read -p "Apellido: " surnameSearcher
 
-	resultHeader "$surnameSearcher" ${surname[@]} 
+	resultHeader surname "$surnameSearcher"
 }
 
 
@@ -69,7 +69,7 @@ function searchByDNI() {
 	echo
 	read -p "DNI: " dniSearcher
 
-	resultHeader "$dniSearcher" "dni" 
+	resultHeader dni "$dniSearcher"
 }
 
 
@@ -80,7 +80,7 @@ function searchByName() {
 	echo
 	read -p "Ingrese Nombre: " nameSearcher
 
-	resultHeader "$nameSearcher" "name" 
+	resultHeader name "$nameSearcher" 
 }
 
 
@@ -118,21 +118,17 @@ function showResult() {
 }
 
 function resultHeader() {
-	declare keyword=$1
-	shift
-	declare -a vector=("$@")
+	declare arrayElements=$1[@]
+	declare -a vector=("${!arrayElements}")
 
-	echo "${vector[@]}"
-	read -p "enter..."
-	echo $keyword
-	read -p "enter..."
-
-	declare -i searchIndex
+	declare keyword="$2"
 
 	clear
 
 	echo "Resultado de la busqueda"
 	echo "========================"
+
+	declare -i searchIndex
 
 	for((searchIndex = 0; searchIndex < currentIndex; searchIndex++)) {
 		if [ "${vector[searchIndex]}" == "$keyword" ]
