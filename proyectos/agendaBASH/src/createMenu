@@ -38,9 +38,26 @@ function create() {
 
 function newRegister() {
 	echo
+
 	read -p "Apellido: " surname[$currentIndex]
 	read -p "Nombre: " name[$currentIndex]
-	read -p "DNI: " dni[$currentIndex]
+
+	while :
+	do
+		read -p "DNI: " dni[$currentIndex]
+
+		declare -i searchIndex=0
+		for ((searchIndex=0; searchIndex < currentIndex - 1; searchIndex++)) {
+			if ((dni[searchIndex] == dni[currentIndex]))
+			then
+				echo "ERROR! Ya existe ese DNI"
+				dni[$currentIndex]=0
+			fi
+		}
+
+		((dni[currentIndex] <= 0)) || break
+	done
+
 	read -p "Dirección Postal: " postalAddress[$currentIndex]
 	read -p "Teléfono: " phone[$currentIndex]
 	read -p "email: " email[$currentIndex]

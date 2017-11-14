@@ -19,6 +19,10 @@ function saveData() {
 			echo ${email[i]} >> email.db
 		fi
 	}
+
+	echo
+	echo "${#status[@]} registros procesados..."
+	echo 
 }
 
 function loadData() {
