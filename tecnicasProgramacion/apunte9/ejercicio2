@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Escribir un programa que encuentre la suma de los enteros positivos pares desde N hasta 2. 
+# Chequear que si N es impar se imprima un mensaje de error. 
+
+function recursiveAdd() {
+	declare -i number=$1
+	
+	if ((number == 2))
+	then
+		echo 2
+	else
+		echo $(( number + $(recursiveAdd $(( number - 2)) )  ))
+	fi
+}
+
+declare -i number
+
+while :
+do
+	read -p "Número: " number
+	((number % 2 != 0 || number <= 0)) || break
+done
+
+echo $(recursiveAdd $number)
+
+exit 0

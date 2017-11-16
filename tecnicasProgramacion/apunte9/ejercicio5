@@ -1,0 +1,41 @@
+#!/bin/bash
+
+function fibonacciRecursive() {
+	declare -i number=$1
+	
+	if ((number == 0 || number == 1 )) 
+	then
+		echo $number
+	else
+		echo $(( $(fibonacciRecursive $((number - 1 ))) + $(fibonacciRecursive $((number - 2 ))) ))
+	fi
+}
+
+function fibonacciIterative(){
+	declare -i n=$1
+	declare -i i=0
+	declare -i j=1
+	declare -i k
+	declare -i t
+	
+	for ((k = 1; k < n; k++)) {
+		t=$((i + j))
+		i=$j
+		j=$t
+	}
+
+	echo $j
+}
+
+declare -i number
+
+read -p "Número: " number
+
+SECONDS=0
+
+echo "Recursivo: $(fibonacciRecursive $number) en $SECONDS segundos"
+
+SECONDS=0
+echo "Iterativo: $(fibonacciIterative $number) en $SECONDS segundos"
+
+exit 0

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Programar un algoritmo recursivo cruzado que determine si un número 
+# (distinto de cero) es positivo o es negativo.
+
+function isPositive() {
+	declare -i number=$1
+	
+	if ((number > 0))
+	then
+		echo true
+	else 
+		echo $(isNegative $number)
+	fi
+}
+
+function isNegative() {
+	declare -i number=$1
+	
+	if ((number < 0))
+	then
+		echo false
+	else
+		echo $(isPositive $number)
+	fi
+}
+
+declare -i number
+read -p "Numero: " number
+
+if [ "$(isPositive $number)" = true ]
+then
+	echo "Es positivo"
+elif [ "$(isPositive $number)" = false ]
+then
+	echo "Es negativo"
+fi
+
+exit 0

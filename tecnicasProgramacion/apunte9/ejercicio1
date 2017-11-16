@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Escribir una función recursiva que devuelva la suma de los primeros N enteros positivos
+
+function recursiveAdder() {
+	declare -i number=$1
+	
+	if ((number == 0))
+	then
+		echo $number
+	else
+		echo $((number + $(recursiveAdder $((number - 1)) ) ))
+	fi
+}
+
+declare -i number
+
+while :
+do
+	read -p "Número: " number
+	((number <= 0)) || break
+done
+
+echo $(recursiveAdder $number)
+
+exit 0

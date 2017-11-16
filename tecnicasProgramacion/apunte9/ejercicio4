@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Programar un algoritmo recursivo que calcule el máximo común divisor de dos números (método Euclidiano). 
+
+function greatestCommonDivisor() {
+	declare -i number1=$1
+	declare -i number2=$2
+	
+	if ((number1 < number2))
+	then 
+		echo $(greatestCommonDivisor $number2 $number1)
+	elif ((number2 == 0))
+	then
+		echo $number1
+	else
+		echo $( greatestCommonDivisor $number2 $((number1 % number2)) )
+	fi
+}
+
+declare -i number1
+declare -i number2
+
+read -p "Número1: " number1
+read -p "Número2: " number2
+
+echo $(greatestCommonDivisor $number1 $number2)
+
+exit 0
