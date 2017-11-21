@@ -4,6 +4,7 @@
 # la base como la altura sean mayores que cero, y en caso contrario, repetir el ingreso de datos hasta 
 # que el valor sea correcto. Mostrar el área del rectángulo (base * altura).
 
+declare -i base=0
 while :
 do
 	read -p "Base: " base
@@ -11,6 +12,7 @@ do
 	((base <= 0)) || break
 done
 
+declare -i heigth=0
 while :
 do
 	read -p "Altura: " height

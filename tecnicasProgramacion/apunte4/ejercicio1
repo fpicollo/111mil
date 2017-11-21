@@ -3,10 +3,13 @@
 # Dados tres números enteros distintos escriba un algoritmo para escribirlos
 # ordenadamente de menor a mayor. 
 
+declare -i number1=0
 read -p "Número: " number1
-max=$number1
-min=$number1
 
+declare -i max=$number1
+declare -i min=$number1
+
+declare -i number2=0
 read -p "Número: " number2
 if ((number2 > max))
 then
@@ -15,6 +18,7 @@ else
 	min=$number2
 fi
 
+declare -i number3=0
 read -p "Número: " number3
 if ((number3 > max))
 then
@@ -23,6 +27,8 @@ elif ((number3 < min))
 then
 	min=$number3
 fi
+
+declare -i mid=0
 
 if ((number1 != max && number1 != min))
 then

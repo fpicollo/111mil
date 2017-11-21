@@ -3,11 +3,12 @@
 # Crear una función que reciba un número y lo devuelva elevado al cubo. 
 
 function pow3() {
-	local number=$1
+	declare -i number=$1
 	
 	echo $((number * number * number))
 }
 
+declare -i number=0
 read -p "Número: " number
 
 echo "$number al cubo es: $(pow3 $number)"

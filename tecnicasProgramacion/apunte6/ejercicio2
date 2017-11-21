@@ -12,17 +12,17 @@
 # XX
 # X
 
-readonly size=5
+readonly _SIZE=5
 
 clear
 echo
 
-for ((i = 0; i < size; i++)) {
+for ((i = 0; i < _SIZE; i++)) {
 	equis=$equis"X"
 	echo $equis
 }
 
-for ((i = size - 1; i > 0; i--)) {
+for ((i = _SIZE - 1; i > 0; i--)) {
 	equis=""
 
 	for ((k = 0; k < i; k++)) {

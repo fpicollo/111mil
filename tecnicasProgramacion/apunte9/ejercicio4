@@ -17,10 +17,10 @@ function greatestCommonDivisor() {
 	fi
 }
 
-declare -i number1
-declare -i number2
-
+declare -i number1=0
 read -p "Número1: " number1
+
+declare -i number2=0
 read -p "Número2: " number2
 
 echo $(greatestCommonDivisor $number1 $number2)

@@ -13,7 +13,7 @@ function recursiveAdder() {
 	fi
 }
 
-declare -i number
+declare -i number=0
 
 while :
 do

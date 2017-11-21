@@ -3,10 +3,12 @@
 # Desarrollar un algoritmo que lea 5 números por teclado y los guarde en un vector, los copie a otro 
 # vector multiplicados por 2 y muestre el segundo vector.
 
+declare -a -i vector1=()
 for ((i = 0; i < 5; i++)) {
 	read -p "Número: " vector1[$i]
 }
 
+declare -a -i vector2
 for ((i = 0; i < 5; i++)) {
 	vector2[i]=$((vector1[i] * 2))
 }

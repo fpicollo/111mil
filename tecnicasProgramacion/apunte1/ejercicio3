@@ -3,10 +3,19 @@
 # Desarrollar un software que le solicite al usuario el ingreso de 5 números,
 # y mostrarlos en el orden inverso al ingresado.
 
+declare -i number1=0
 read -p "Numero: " number1
+
+declare -i number2=0
 read -p "Numero: " number2
+
+declare -i number3=0
 read -p "Numero: " number3
+
+declare -i number4=0
 read -p "Numero: " number4
+
+declare -i number5=0
 read -p "Numero: " number5
 
 echo $number5

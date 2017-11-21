@@ -3,10 +3,11 @@
 # Desarrollar un algoritmo que lea números de forma indefinida hasta que se ingrese un cero.
 # Mostrar la suma de todos los números ingresados.
 
-total=0
+declare -i total=0
 
 while :
 do
+	declare -i number=0
 	read -p "Numero: " number
 
 	total=$((total + number))

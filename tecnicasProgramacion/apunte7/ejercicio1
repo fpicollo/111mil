@@ -4,6 +4,7 @@
 
 while :
 do
+	declare -i number=0
 	read -p "Numero: " number
 
 	((number <= 100)) || break

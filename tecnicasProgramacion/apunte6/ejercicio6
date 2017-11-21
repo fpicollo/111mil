@@ -3,7 +3,7 @@
 # Desarrollar un algoritmo que rellene un vector con los números impares comprendidos entre 1 y 100
 # y los muestre en pantalla en orden ascendente. 
 
-position=0
+declare -i position=0
 
 for ((i = 1; i <= 100; i++)) {
 	if ((i % 2 != 0)) 

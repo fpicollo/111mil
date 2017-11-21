@@ -4,8 +4,8 @@
 # parámetro es par o no lo es.
 
 function isEven() {
-	local number=$1
-
+	declare -i number=$1
+	
 	if ((number % 2 == 0))
 	then
 		echo true
@@ -14,6 +14,7 @@ function isEven() {
 	fi
 }
 
+declare -i number=0
 read -p "Número: " number
 
 echo $(isEven $number)

@@ -4,9 +4,9 @@
 # para el número 16, sus divisores son 1, 2, 4, 8, 16, por lo que la respuesta debería ser 5 (utilizar módulo). 
 
 function getDividers() {
-	local dividers=0
-	local targetNumber=$1
-
+	declare -i targetNumber=$1
+	declare -i dividers=0
+	
 	for ((i = 1; i <= targetNumber; i++)) {
 		if ((targetNumber % i == 0))
 		then
@@ -17,9 +17,10 @@ function getDividers() {
 	echo $dividers
 }
 
+declare -i number=0
 read -p "Número: " number
 
-result=$(getDividers $number)
+declare -i result=$(getDividers $number)
 
 echo "Cantidad de divisores: $result"
 

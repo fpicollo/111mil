@@ -11,6 +11,7 @@
 
 # Verificar que el dato ingresado sea mayor a cero y múltiplo de 2.
 
+declare -i base=0
 read -p "Base (número par): " base
 
 if ((base < 1 || base % 2 == 1))

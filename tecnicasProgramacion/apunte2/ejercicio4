@@ -4,9 +4,16 @@
 # Determinar si el primero y el segundo son iguales, o el tercero y 
 # el cuarto son iguales.
 
+declare -i number1=0
 read -p "Número" number1
+
+declare -i number2=0
 read -p "Número" number2
+
+declare -i number3=0
 read -p "Número" number3
+
+declare -i number4=0
 read -p "Número" number4
 
 if ((number1 == number2 || number3 == number4))

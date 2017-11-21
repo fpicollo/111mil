@@ -25,7 +25,7 @@ function isNegative() {
 	fi
 }
 
-declare -i number
+declare -i number=0
 read -p "Numero: " number
 
 if [ "$(isPositive $number)" = true ]

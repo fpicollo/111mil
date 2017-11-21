@@ -3,6 +3,7 @@
 # Desarrollar un programa que le solicite al usuario que ingrese un número entero.
 # Determinar si el número ingresado es 10.
 
+declare -i number=0
 read -p "Numero: " number
 
 if ((number == 10))

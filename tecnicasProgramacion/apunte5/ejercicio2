@@ -3,6 +3,7 @@
 # Desarrollar un software que reciba como entrada un carácter cualquiera. 
 # Determinar si es una vocal, una consonante o un número.
 
+declare character=""
 read -p "Caracter: " character
 
 case $character in

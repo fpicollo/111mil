@@ -4,6 +4,7 @@
 # Determinar si el número ingresado es múltiplo de 2 o no (utilizar el operador de 
 # módulo). 
 
+declare -i number=0
 read -p "Número: " number
 
 if ((number % 2 == 0))

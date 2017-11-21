@@ -5,9 +5,16 @@
 # Luego mostrar un mensaje por pantalla similar a “La comisaría de Banfield se 
 # encuentra en la calle Maipú 133 entre Alsina y Belgrano”. 
 
+declare city=""
 read -p "Barrio: " city
+
+declare address=""
 read -p "Direccion de la comisaría: " address
+
+declare street1=""
 read -p "Entrecalle1: " street1
+
+declare street2=""
 read -p "Entrecalle2: " street2
 
 echo "La comisaría de $city se encuentra en $address entre $street1 y $street2"

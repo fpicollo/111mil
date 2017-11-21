@@ -3,10 +3,13 @@
 # Desarrollar un software que le solicite al usuario el ingreso de 2 números 
 # y le muestre al usuario el resultado de la división de esos números.
 
+declare -i number1=0
 read -p "Número: " number1
+
+declare -i number2=0
 read -p "Número: " number2
 
-result=$((number1 / number2))
+declare -i result=$((number1 / number2))
 
 echo "La división es: $result"
 

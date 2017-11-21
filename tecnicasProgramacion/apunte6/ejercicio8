@@ -9,7 +9,10 @@
 
 # Donde el usuario deba ingresar la base y la altura. Verificar que dichos datos sean mayores a cero.
 
+declare -i base=0
 read -p "Base: " base
+
+declare -i height=0
 read -p "Altura: " height
 
 if ((base < 1 || height < 1)) 

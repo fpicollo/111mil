@@ -4,6 +4,7 @@
 # un número romano y encontrar su valor en números decimales, en caso contrario 
 # mostrar un mensaje de error que diga que no es un número romano válido.
 
+declare character=""
 read -p "Caracter: " character
 
 case $character in

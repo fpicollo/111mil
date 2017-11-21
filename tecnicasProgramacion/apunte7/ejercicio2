@@ -5,7 +5,10 @@
 
 while :
 do
+	declare -i number1=0
 	read -p "Numero: " number1
+	
+	declare -i number2=0
 	read -p "Numero: " number2
 
 	echo "La suma es $((number1 + number2))"

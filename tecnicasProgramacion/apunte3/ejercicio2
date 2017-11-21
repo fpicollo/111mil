@@ -6,7 +6,10 @@
 # operador es un usuario autorizado, saludarlo por su nombre, sino, salir del 
 # programa mostrando un mensaje de error.
 
+declare userName=""
 read -p "Usuario: " userName
+
+declare password=""
 read -p "Contraseña: " password
 
 if [[ $userName == "Juan" && $password == "1234" ]] \

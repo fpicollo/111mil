@@ -2,6 +2,7 @@
 
 # Desarrollar un algoritmo que muestre la tabla de multiplicar de un número dado.
 
+declare -i number=0
 read -p "Número: " number
 
 clear 

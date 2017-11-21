@@ -3,6 +3,7 @@
 # Escriba un algoritmo para mostrar por pantalla el nombre del día de acuerdo 
 # a un número (del 1 al 7) que se pase como entrada.
 
+declare -i dayNumber=0
 read -p "Número de día: " dayNumber
 
 if ((dayNumber == 1))

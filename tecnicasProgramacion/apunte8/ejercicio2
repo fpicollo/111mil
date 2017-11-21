@@ -4,9 +4,9 @@
 # Desarrollar una función que ayude a que el proceso principal sea legible.
 
 function areMultiples() {
-	local firstNumber=$1
-	local secondNumber=$2
-
+	declare -i firstNumber=$1
+	declare -i secondNumber=$2
+	
 	if ((firstNumber % secondNumber == 0 || secondNumber % firstNumber == 0))
 	then
 		echo true
@@ -15,7 +15,10 @@ function areMultiples() {
 	fi
 }
 
+declare -i number1=0
 read -p "Numero: " number1
+
+declare -i number2=0
 read -p "Numero: " number2
 
 

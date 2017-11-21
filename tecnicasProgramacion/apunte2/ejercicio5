@@ -3,10 +3,13 @@
 # Desarrollar un programa que determine si un usuario es de género masculino 
 # y es mayor de edad.
 
+declare gender=""
 read -p "Género (m/f): " gender
+
+declare -i number=0
 read -p "Edad: " age
 
-if [ $gender == "m" ] && ((age >= 18))
+if [[ $gender == "m" ]] && ((age >= 18))
 then
 	echo "Masculino, mayor de edad"
 fi
