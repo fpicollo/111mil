@@ -11,6 +11,6 @@ function pow3() {
 declare -i number=0
 read -p "Número: " number
 
-echo "$number al cubo es: $(pow3 $number)"
+echo "$number al cubo es: $( pow3 $number )"
 
 exit 0

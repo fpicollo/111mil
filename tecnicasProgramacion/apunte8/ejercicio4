@@ -17,6 +17,6 @@ function isEven() {
 declare -i number=0
 read -p "Número: " number
 
-echo $(isEven $number)
+echo $( isEven $number )
 
 exit 0

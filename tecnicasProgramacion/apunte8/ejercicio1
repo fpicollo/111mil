@@ -20,7 +20,7 @@ function getDividers() {
 declare -i number=0
 read -p "Número: " number
 
-declare -i result=$(getDividers $number)
+declare -i result=$( getDividers $number )
 
 echo "Cantidad de divisores: $result"
 

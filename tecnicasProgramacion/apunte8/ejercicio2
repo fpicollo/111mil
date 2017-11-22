@@ -22,7 +22,7 @@ declare -i number2=0
 read -p "Numero: " number2
 
 
-if [ $(areMultiples $number1 $number2) == true ]
+if [[ $( areMultiples $number1 $number2 ) == true ]]
 then
 	echo "Son múltiplos"
 else

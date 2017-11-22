@@ -24,19 +24,19 @@ do
 	
 	case $operation in
 		s) 
-			result=$(add $number1 $number2)
+			result=$( add $number1 $number2 )
 			;;
 		r) 
-			result=$(substract $number1 $number2)
+			result=$( substract $number1 $number2 )
 			;;
 		m)
-			result=$(multiply $number1 $number2)
+			result=$( multiply $number1 $number2 )
 			;;
 		d)
-			result=$(divide $number1 $number2)
+			result=$( divide $number1 $number2 )
 			;;
 		p)
-			result=$(pow $number1 $number2)
+			result=$( pow $number1 $number2 )
 			;;
 		*)
 			echo "Opción incorrecta"

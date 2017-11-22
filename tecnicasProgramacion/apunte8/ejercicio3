@@ -30,7 +30,7 @@ read -p "Número: " number2
 declare -i number1=0
 read -p "Número: " number3
 
-result=$(getMax $number1 $number2 $number3)
+result=$( getMax $number1 $number2 $number3 )
 
 echo "Mayor: $result"
 
