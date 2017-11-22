@@ -6,5 +6,5 @@
 number1 = int(input("Ingrese un número: "))
 number2 = int(input("Ingrese un número: "))
 
-result = str(number1 / number2)
+result = str(number1 * number2)
 print("El resultado de la multiplicación es: " + result)
