@@ -7,8 +7,6 @@
 
 while : 
 do
-	declare -i result=0
-
 	clear
 	
 	declare -i number1=0

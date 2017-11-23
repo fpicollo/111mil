@@ -3,54 +3,41 @@
 # Desarrollar una calculadora que realice suma, resta, multiplicación, división y potencia. Repetir hasta que el usuario
 # decida salir. Utilizar funciones.
 
-. functionLibrary6
+from functionLibrary6 import *
+import os
 
-while : 
-do
-	declare -i result=0
+while True: 
+	result = 0
+	os.system("clear")
+	
+	number1 = float(input("Número: " ))
+	
+	operation = ""
+	while operation not in ["s", "r", "m", "d", "p"]:
+		operation = input("Operación (s, r, m, d, p): ")
+	
+	number2 = float(input("Número: " ))
+	
+	if operation == "s":
+		result = add(number1, number2)
+	elif operation == "r":
+		result = substract(number1, number2)
+	elif operation == "m":
+		result = multiply(number1, number2)
+	elif operation == "d":
+			result = divide (number1, number2)
+	elif operation == "p":
+			result = pow(number1, number2)
+	else:
+		print("Opción incorrecta")
 
-	clear
+	print()
+	print("Resultado: " + str(result))
+	print()
 	
-	declare -i number1=0
-	read -p "Número: " number1
+	repeat = ""
+	while repeat != "s" and repeat !="n":
+		repeat = input("Realizar otro cálculo? (s/n): ")
 	
-	declare operation=""
-	read -p "Operación (s, r, m, d, p): " operation
-	
-	declare -i number2=0
-	read -p "Número: " number2
-	
-	declare -i result=0
-	
-	case $operation in
-		s) 
-			result=$( add $number1 $number2 )
-			;;
-		r) 
-			result=$( substract $number1 $number2 )
-			;;
-		m)
-			result=$( multiply $number1 $number2 )
-			;;
-		d)
-			result=$( divide $number1 $number2 )
-			;;
-		p)
-			result=$( pow $number1 $number2 )
-			;;
-		*)
-			echo "Opción incorrecta"
-			;;
-	esac
-
-	echo
-	echo "Resultado: $result"
-	echo
-	
-	declare -i repeat=""
-	read -p "Realizar otro cálculo? (s/n): " repeat
-	
-	[[ "$repeat" == "s" ]] || break
-done
-
-exit 0
+	if repeat == "n":
+		break
