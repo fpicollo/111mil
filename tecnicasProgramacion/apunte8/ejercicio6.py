@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+# Desarrollar una calculadora que realice suma, resta, multiplicación, división y potencia. Repetir hasta que el usuario
+# decida salir. Utilizar funciones.
+
+. functionLibrary6
+
+while : 
+do
+	declare -i result=0
+
+	clear
+	
+	declare -i number1=0
+	read -p "Número: " number1
+	
+	declare operation=""
+	read -p "Operación (s, r, m, d, p): " operation
+	
+	declare -i number2=0
+	read -p "Número: " number2
+	
+	declare -i result=0
+	
+	case $operation in
+		s) 
+			result=$( add $number1 $number2 )
+			;;
+		r) 
+			result=$( substract $number1 $number2 )
+			;;
+		m)
+			result=$( multiply $number1 $number2 )
+			;;
+		d)
+			result=$( divide $number1 $number2 )
+			;;
+		p)
+			result=$( pow $number1 $number2 )
+			;;
+		*)
+			echo "Opción incorrecta"
+			;;
+	esac
+
+	echo
+	echo "Resultado: $result"
+	echo
+	
+	declare -i repeat=""
+	read -p "Realizar otro cálculo? (s/n): " repeat
+	
+	[[ "$repeat" == "s" ]] || break
+done
+
+exit 0
