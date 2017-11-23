@@ -25,9 +25,9 @@ while True:
 	elif operation == "m":
 		result = multiply(number1, number2)
 	elif operation == "d":
-			result = divide (number1, number2)
+		result = divide (number1, number2)
 	elif operation == "p":
-			result = pow(number1, number2)
+		result = pow(number1, number2)
 	else:
 		print("Opción incorrecta")
 
