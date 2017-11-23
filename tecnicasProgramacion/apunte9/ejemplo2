@@ -1,0 +1,43 @@
+#!/bin/bash
+
+function recursiveFactorial(){
+	declare -i number=$1
+		
+	if ((number <= 1))
+	then
+		echo 1
+	else
+		echo $(( number * $( recursiveFactorial $((number - 1)) ) ))
+	fi
+}
+
+function iterativeFactorial() {
+	declare -i number=$1
+	declare -i result=$number
+
+	declare -i i
+	for ((i = number - 1; i >= 1; i--)) {
+		result=$((result * i))
+	}
+
+	echo $result
+}
+
+declare -i number
+
+read -p "Número: " number
+
+SECONDS=0
+echo
+echo "$number! (recursivo): $(recursiveFactorial $number)"
+echo "Se demoró $SECONDS segundos"
+echo 
+read -p "Presione enter para continuar..."
+
+SECONDS=0
+echo
+echo "$number! (iterativo): $(iterativeFactorial $number)"
+echo "Se demoró $SECONDS segundos"
+echo 
+
+exit 0

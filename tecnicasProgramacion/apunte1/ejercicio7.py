@@ -6,8 +6,6 @@
 number1 = int(input("Ingrese un número: "))
 number2 = int(input("Ingrese un número: "))
 
-if number2 != 0:
-	result = str(number1 / number2)
-	print("El resultado de la división es: " + result)
-else:
-	print("No se puede dividir por 0")
+result = number1 / number2
+
+print("El resultado de la división es: " + str(result))

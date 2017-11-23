@@ -1,0 +1,40 @@
+#!/bin/bash
+
+function recursiveCountdown() {
+	declare -i number=$1
+	
+	if ((number <= 0))
+	then
+		echo "$number"
+	else
+		echo "$number"
+		recursiveCountdown $((number - 1))
+	fi
+}
+
+function iterativeCountdown() {
+	declare -i number=$1
+
+	for ((i = number; i >= 0; i--)) {
+		echo "$i"
+	}
+}
+
+declare -i number1
+
+read -p "Número: " number1
+
+SECONDS=0
+recursiveCountdown $number1
+echo
+echo "Función recursiva: demoró $SECONDS segundos"
+echo
+read -p "Presione enter para continuar..."
+
+SECONDS=0
+iterativeCountdown $number1
+echo
+echo "Función recursiva: demoró $SECONDS segundos"
+echo
+
+exit 0

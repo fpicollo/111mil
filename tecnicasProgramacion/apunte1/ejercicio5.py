@@ -6,5 +6,6 @@
 number1 = int(input("Ingrese un número: "))
 number2 = int(input("Ingrese un número: "))
 
-result = str(number1 - number2)
-print("El resultado de la resta es: " + result)
+result = number1 - number2
+
+print("El resultado de la resta es: " + str(result))
