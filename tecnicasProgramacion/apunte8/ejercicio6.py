@@ -4,11 +4,11 @@
 # decida salir. Utilizar funciones.
 
 from functionLibrary6 import *
-import os
+from os import system
 
 while True: 
 	result = 0
-	os.system("clear")
+	system("clear")
 	
 	number1 = float(input("Número: " ))
 	
@@ -25,7 +25,7 @@ while True:
 	elif operation == "m":
 		result = multiply(number1, number2)
 	elif operation == "d":
-		result = divide (number1, number2)
+		result = divide(number1, number2)
 	elif operation == "p":
 		result = pow(number1, number2)
 	else:

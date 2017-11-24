@@ -12,7 +12,6 @@ def areMultiples(number1, number2):
 number1 = int(input("Número: "))
 number2 = int(input("Número: "))
 
-
 if areMultiples(number1, number2):
 	print("Son múltiplos")
 else:
