@@ -11,7 +11,7 @@
 
 # Verificar que el dato ingresado sea mayor a cero y múltiplo de 2.
 
-import os
+from os import system
 
 while True:
 	side = int(input("Lado: "))
@@ -24,7 +24,7 @@ line = ""
 for i in range(side):
 	line += "X"
 
-os.system("clear")
+system("clear")
 
 print()
 
