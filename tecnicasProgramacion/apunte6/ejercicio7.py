@@ -14,3 +14,12 @@ for i in range(5):
 
 for i in range(5):
 	print(vector2[i])
+
+print("Largo vector1: " + str(len(vector1)))
+
+del vector1[4]
+
+print("Largo vector1: " + str(len(vector1)))
+
+for i in range(4):
+	print(vector1[i])

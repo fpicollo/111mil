@@ -9,7 +9,7 @@
 
 # Donde el usuario deba ingresar la base y la altura. Verificar que dichos datos sean mayores a cero.
 
-import os
+from os import system
 
 base = int(input("Base: "))
 
@@ -19,7 +19,7 @@ for i in range(base):
 
 height = int(input("Altura: "))
 
-os.system("clear")
+system("clear")
 
 print()
 
