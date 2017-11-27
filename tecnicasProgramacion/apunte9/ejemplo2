@@ -5,7 +5,7 @@ function recursiveFactorial(){
 		
 	if ((number <= 1))
 	then
-		echo 1
+		echo $number
 	else
 		echo $(( number * $( recursiveFactorial $((number - 1)) ) ))
 	fi
