@@ -4,7 +4,7 @@
 # Las respuestas posibles son: “Masculino” y “Femenino”. Determinar si el 
 # usuario es “Femenino”.
 
-declare -i gender=""
+declare gender=""
 read -p "Ingrese su genero (Masculino / Femenino): " gender
 
 if [[ "$gender" == "Femenino" ]]
