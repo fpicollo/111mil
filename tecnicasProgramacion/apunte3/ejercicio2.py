@@ -6,9 +6,14 @@
 # operador es un usuario autorizado, saludarlo por su nombre, sino, salir del 
 # programa mostrando un mensaje de error.
 
+from sys import exit 
+
 userName = input("Ingrese nombre de usuario: ")
 userPassword = input("Ingrese contraseña: ")
 
 if (userName == "Juan" and userPassword == "1234") or \
   (userName == "Pedro" and userPassword == "5678"):
 	print("Hola " + userName)
+else:
+	print("ERROR")
+	exit(1)
