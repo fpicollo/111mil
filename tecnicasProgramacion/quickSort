@@ -1,0 +1,51 @@
+#!/bin/bash
+
+sortnumbers()
+{
+	declare -i -a array=("$@")
+	declare -i -a l
+	declare -i -a g
+	declare -i -a e
+	declare -i x=0
+	
+	if ((${#array[@]} < 2)) 
+	then
+		echo -n ${array[@]}
+	else
+		declare -i pivot=${array[0]}
+		
+		for x in ${array[@]}
+		do
+			if ((x < pivot))
+			then
+				l=(${l[@]} $x)
+			elif ((x > pivot))
+			then
+				g=( ${g[@]} $x )
+			else
+				e=(${e[@]} $x)
+			fi
+		done
+
+		echo "`sortnumbers "${l[@]}"` ${e[@]} `sortnumbers "${g[@]}"`"
+	fi
+}
+
+declare -i -r SIZE=10000
+declare -i -a vector=()
+
+for ((i = 0; i < SIZE; i++)) {
+	vector[i]=$((RANDOM % 1000))
+}
+
+SECONDS=0
+declare -i vector2=($(sortnumbers "${vector[@]}"))
+elapsed_time=$SECONDS
+
+for ((i = 0; i < ${#vector2[@]}; i++)) {
+	echo ${vector2[i]}
+}
+
+echo "TIEMPO: $elapsed_time"
+
+exit 0
