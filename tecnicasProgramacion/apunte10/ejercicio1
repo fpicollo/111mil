@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Desarrollar un programa que cargue un vector con números aleatorios y ordenarlo utilizando bubble sort. 
+# Comparar diferencias de rendimiento para vectores de 10, 100, 1000, y 10000 posiciones. Resolver en BASH y en Python.
+
+declare -i SIZE=0
+
+read -p "Tamaño del vector: " SIZE
+
+declare -i -a vector=()
+
+for ((i = 0; i < SIZE; i++)) {
+	vector[i]=$((RANDOM % SIZE))
+}
+
+for ((i = 0; i < SIZE; i++)) {
+	echo ${vector[i]}
+}
+
+read -p "Vector desordenado ($SIZE posiciones)..."
+
+SECONDS=0
+
+for ((i = 0; i < SIZE -1; i++)) {
+	for ((j = i + 1; j < SIZE; j++)) {
+		if ((vector[i] > vector[j]))
+		then
+			declare -i auxiliary=vector[$j]
+			vector[$j]=${vector[i]}
+			vector[$i]=$auxiliary
+		fi
+	}
+}
+
+for ((i = 0; i < SIZE; i++)) {
+	echo ${vector[i]}
+}
+
+read -p "Vector ordenado ($SIZE posiciones)... Se demoró $SECONDS segundos en el ordenamiento"
+
+exit 0
