@@ -2,11 +2,11 @@
 
 # Desarrollar un algoritmo que muestre la tabla de multiplicar de un número dado.
 
-import os
+from os import system
 
 number = int(input("\nNúmero: "))
 
-os.system("clear")
+system("clear")
 
 print("Tabla del: " + str(number))
 print("===== ===")
