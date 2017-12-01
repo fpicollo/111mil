@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import json
+from json import loads
 
-agenda = json.loads(open("outfile.db").read())
+agenda = loads(open("outfile.db").read())
 
 print(agenda)
 

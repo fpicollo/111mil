@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import json
+from json import dump
 
 agenda = []
 
@@ -13,4 +13,4 @@ for i in range(3):
 	agenda.append(persona)
 
 with open ("outfile.db", "w") as fout:
-	json.dump(agenda, fout)
+	dump(agenda, fout)
