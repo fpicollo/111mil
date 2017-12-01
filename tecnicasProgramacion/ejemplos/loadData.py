@@ -2,7 +2,7 @@
 
 from json import loads
 
-agenda = loads(open("outfile.db").read())
+agenda = loads(open("outfile.json").read())
 
 print(agenda)
 

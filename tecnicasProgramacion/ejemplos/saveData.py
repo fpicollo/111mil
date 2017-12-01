@@ -12,5 +12,5 @@ for i in range(3):
 
 	agenda.append(persona)
 
-with open ("outfile.db", "w") as fout:
+with open("outfile.json", "w") as fout:
 	dump(agenda, fout)
