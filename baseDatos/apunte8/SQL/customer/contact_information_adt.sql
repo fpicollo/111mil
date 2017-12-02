@@ -4,7 +4,7 @@ CREATE TABLE customer.contact_information (
 	address             text,
 	phone               text,
 	email               text,
-	cuit                text NOT NULL REFERENCES customer.person(cuit)
+	cuit                text NOT NULL REFERENCES customer.person(cuit) ON DELETE CASCADE
 );
 
 
