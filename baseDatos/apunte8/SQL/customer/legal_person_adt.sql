@@ -7,7 +7,7 @@ CREATE TABLE customer.legal_person (
 );
 
 
-CREATE OR REPLACE customer.legal_person ( 
+CREATE OR REPLACE FUNCTION customer.legal_person ( 
 	IN p_cuit                text,
 	IN p_legal_name          text,
 	IN p_constitution_date   timestamp with time zone,
@@ -20,7 +20,7 @@ BEGIN
 	IF EXISTS (SELECT 1 FROM customer.legal_person WHERE cuit = p_cuit)
 	THEN 
 		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA FÍSICA CON ESE CUIT';
-	END;
+	END IF;
 	
 	PERSON_ok = customer.person(p_cuit, p_iibb);
 	
