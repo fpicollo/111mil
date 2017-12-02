@@ -5,3 +5,33 @@ CREATE TABLE customer.legal_person (
 	fantasy_name        text,
 	constitution_date   timestamp with time zone NOT NULL
 );
+
+
+CREATE OR REPLACE customer.legal_person ( 
+	IN p_cuit                text,
+	IN p_legal_name          text,
+	IN p_constitution_date   timestamp with time zone,
+	IN p_iibb                text,
+	IN p_fantasy_name        text DEFAULT NULL
+) RETURNS boolean AS $$
+DECLARE 
+	person_ok                boolean;
+BEGIN
+	IF EXISTS (SELECT 1 FROM customer.legal_person WHERE cuit = p_cuit)
+	THEN 
+		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA FÍSICA CON ESE CUIT';
+	END;
+	
+	PERSON_ok = customer.person(p_cuit, p_iibb);
+	
+	IF NOT person_ok
+	THEN 
+		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA CON ESE CUIT';
+		RETURN FALSE;
+	ELSE 
+		INSERT INTO customer.legal_person
+			VALUES(p_cuit, p_legal_name, p_fantasy_name, p_constitution_date);
+	END IF;
+END;
+$$ LANGUAGE plpgsql
+SET search_path FROM CURRENT;
