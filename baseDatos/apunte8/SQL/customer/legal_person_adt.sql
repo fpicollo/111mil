@@ -30,5 +30,5 @@ BEGIN
 			VALUES(p_cuit, p_legal_name, p_fantasy_name, p_constitution_date);
 	END IF;
 END;
-$$ LANGUAGE plpgsql
+$$ LANGUAGE plpgsql VOLATILE
 SET search_path FROM CURRENT;

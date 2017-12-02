@@ -34,5 +34,5 @@ BEGIN
 		RETURN TRUE;
 	END IF;
 END;
-$$ LANGUAGE plpgsql
+$$ LANGUAGE plpgsql VOLATILE
 SET search_path FROM CURRENT;
