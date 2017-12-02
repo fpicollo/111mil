@@ -6,8 +6,8 @@ CREATE TABLE customer.person(
 
 
 CREATE OR REPLACE FUNCTION customer.person(
-	p_cuit              text,
-	p_iibb              text
+	IN p_cuit           text,
+	IN p_iibb           text
 ) RETURNS boolean AS $$
 DECLARE 
 	cuit_count          integer;
@@ -31,7 +31,7 @@ SET search_path FROM CURRENT;
 
 
 CREATE OR REPLACE FUNCTION customer.person(
-	p_cuit              text
+	IN p_cuit           text
 ) RETURNS boolean AS $$
 DECLARE 
 	cuit_count          integer;
