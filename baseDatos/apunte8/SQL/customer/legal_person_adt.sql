@@ -14,17 +14,14 @@ CREATE OR REPLACE FUNCTION customer.legal_person (
 	IN p_iibb                text,
 	IN p_fantasy_name        text DEFAULT NULL
 ) RETURNS boolean AS $$
-DECLARE 
-	person_ok                boolean;
 BEGIN
 	IF EXISTS (SELECT 1 FROM customer.legal_person WHERE cuit = p_cuit)
 	THEN 
-		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA FÍSICA CON ESE CUIT';
+		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA LEGAL CON ESE CUIT';
+		RETURN FALSE;
 	END IF;
 	
-	PERSON_ok = customer.person(p_cuit, p_iibb);
-	
-	IF NOT person_ok
+	IF NOT customer.person(p_cuit, p_iibb)
 	THEN 
 		RAISE WARNING 'ERROR: YA EXISTE UNA PERSONA CON ESE CUIT';
 		RETURN FALSE;
