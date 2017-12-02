@@ -26,9 +26,10 @@ BEGIN
 	IF p_address IS NULL AND p_phone IS NULL AND p_email IS NULL 
 	THEN
 		RAISE WARNING 'ERROR: NINGUN DATO SUMINISTRADO';
+		RETURN FALSE;
 	ELSE 
-		INSERT INTO customer.contact_information (address, phone, mail, cuit)
-			VALUES(p_address, p_phone, p_mail, p_cuit);
+		INSERT INTO customer.contact_information (address, phone, email, cuit)
+			VALUES(p_address, p_phone, p_email, p_cuit);
 		
 		RETURN TRUE;
 	END IF;
