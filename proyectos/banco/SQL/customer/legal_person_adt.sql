@@ -1,6 +1,6 @@
 
 CREATE TABLE customer.legal_person (
-	cuit                text PRIMARY KEY REFERENCES customer.person(cuit),
+	cuit                text PRIMARY KEY REFERENCES customer.person(cuit) ON DELETE CASCADE,
 	legal_name          text NOT NULL,
 	fantasy_name        text,
 	constitution_date   timestamp with time zone NOT NULL

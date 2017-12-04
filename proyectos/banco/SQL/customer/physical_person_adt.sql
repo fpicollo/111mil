@@ -4,7 +4,7 @@ CREATE TABLE customer.physical_person (
 	surname             text NOT NULL,
 	name                text NOT NULL,
 	birthday            timestamp with time zone NOT NULL,
-	cuit                text PRIMARY KEY REFERENCES customer.person(cuit)
+	cuit                text PRIMARY KEY REFERENCES customer.person(cuit) ON DELETE CASCADE
 );
 
 
@@ -96,4 +96,13 @@ CREATE OR REPLACE FUNCTION customer.physical_person_lookup (
 $$
 	SELECT * FROM customer.physical_person WHERE (name, surname) = (p_name, p_surname);
 $$ LANGUAGE sql STRICT STABLE
+SET search_path FROM CURRENT;
+
+
+CREATE OR REPLACE FUNCTION customer.physical_person_get_name(
+	IN p_person         customer.physical_person
+) RETURNS text AS
+$$
+	SELECT p_person.name;
+$$ LANGUAGE sql STABLE STRICT
 SET search_path FROM CURRENT;
