@@ -37,9 +37,9 @@ BEGIN
 	
 	IF p_iibb IS NOT NULL
 	THEN
-		person_ok = customer.person(p_cuit, p_iibb);
+		person_ok := customer.person(p_cuit, p_iibb);
 	ELSE 
-		person_ok = customer.person(p_cuit);
+		person_ok := customer.person(p_cuit);
 	END IF;
 	
 	IF NOT person_ok 
