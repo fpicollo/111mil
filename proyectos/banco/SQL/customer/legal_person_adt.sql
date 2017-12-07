@@ -36,7 +36,7 @@ $$ LANGUAGE plpgsql VOLATILE
 SET search_path FROM CURRENT;
 
 
-CREATE OR REPLACE FUNCTION customer.legal_person_idiibb FROM customer.person WHERE cuit = p_legal_person.cuit;entify_by_cuit (
+CREATE OR REPLACE FUNCTION customer.legal_person_identify_by_cuit (
 	IN p_cuit                     text
 ) RETURNS customer.legal_person AS 
 $$
