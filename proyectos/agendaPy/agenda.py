@@ -20,6 +20,7 @@ contacts = loadData()
 mainForm = tk.Tk()
 mainForm.geometry("813x500")
 mainForm.title("Agenda Python")
+
 centerForm(mainForm)
 
 # Menu
