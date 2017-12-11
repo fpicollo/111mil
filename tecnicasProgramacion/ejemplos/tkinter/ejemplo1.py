@@ -21,4 +21,7 @@ button.place(x = 10, y = 10)
 button2 = tk.Button(mainForm, text = "CHAU", command = chau)
 button2.place(x = 100, y = 10)
 
+label = tk.Label(mainForm, text = "Hola Mundo")
+label.place(x = 200, y = 100)
+
 mainForm.mainloop()
