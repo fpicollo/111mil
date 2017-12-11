@@ -4,24 +4,49 @@ import tkinter as tk
 from tkinter import messagebox as mb
 from tkinter import simpledialog as sd
 
-def saludar():
-	mb.showinfo("saludar", "Hola!!")
+def mensajes():
+	mb.showinfo("showinfo", "Ejemplo Show Info")
+	mb.showerror("showerror", "Ejemplo Show Error")
+	mb.showwarning("showwarning", "Ejemplo Show Warning")
 
-def chau():
-	nombre = sd.askstring("Nombre", "Ingrese su nombre:")
-	mb.showinfo("Saludar", nombre)
+def siNo():
+	respuesta = mb.askokcancel("Ejemplo askokcancel","¿Desea Continuar?")
+	mb.showinfo("Resultado de la respuesta", str(respuesta))
+	
+	respuesta = mb.askretrycancel("Ejemplo askretrycancel", "¿Desea volver a intentarlo?")
+	mb.showinfo("Resultado de la respuesta", str(respuesta))
+	
+	respuesta = mb.askyesno("Ejemplo askyesno","¿Te gusta Python3?")
+	mb.showinfo("Resultado de la respuesta", str(respuesta))
+	
+	respuesta = mb.askyesnocancel("Ejemplo askyesnocancel", "¿Continuar?")
+	mb.showinfo("Resultado de la respuesta", str(respuesta))
+
+def dialogos():
+	respuesta = sd.askstring("Ejemplo askstring", "Ingrese su nombre")
+	mb.showinfo("Respuesta", respuesta)
+	
+	respuesta = sd.askinteger("Ejemplo askinteger", "Ingrese su edad")
+	mb.showinfo("Respuesta", str(respuesta))
+	
+	respuesta = sd.askfloat("Ejemplo askfloat", "Ingrese su altura")
+	mb.showinfo("Respuesta", str(respuesta))
+
 
 mainForm = tk.Tk()
-mainForm.title("Primer Programa TKINTER")
+mainForm.title("Prueba TKInter")
 mainForm.geometry("400x200")
 
-button = tk.Button(mainForm, text = "HOLA", command = saludar)
-button.place(x = 10, y = 10)
+mensajesButton = tk.Button(mainForm, text = "Mensajes", command = mensajes)
+mensajesButton.place(x = 10, y = 10)
 
-button2 = tk.Button(mainForm, text = "CHAU", command = chau)
-button2.place(x = 100, y = 10)
+siNoButton = tk.Button(mainForm, text = "SI / NO", command = siNo)
+siNoButton.place(x = 100, y = 10)
 
-label = tk.Label(mainForm, text = "Hola Mundo")
-label.place(x = 200, y = 100)
+dialogButton = tk.Button(mainForm, text = "Dialogos", command = dialogos)
+dialogButton.place(x = 180, y = 10)
+
+chauButton = tk.Button(mainForm, text = "Chau", command = quit)
+chauButton.place(x = 330, y = 160)
 
 mainForm.mainloop()
