@@ -32,6 +32,9 @@ def dialogos():
 	respuesta = sd.askfloat("Ejemplo askfloat", "Ingrese su altura")
 	mb.showinfo("Respuesta", str(respuesta))
 
+def agregarEtiqueta():
+	tmpLabel = tk.Label(mainForm, text = "TMP LABEL")
+	tmpLabel.place(x = 10, y = 120)
 
 mainForm = tk.Tk()
 mainForm.title("Prueba TKInter")
@@ -45,6 +48,12 @@ siNoButton.place(x = 100, y = 10)
 
 dialogButton = tk.Button(mainForm, text = "Dialogos", command = dialogos)
 dialogButton.place(x = 180, y = 10)
+
+labelButton = tk.Button(mainForm, text = "Prueba Label", command = agregarEtiqueta)
+labelButton.place(x = 260, y = 10)
+
+testLabel = tk.Label(mainForm, text = "Etiqueta de Ejemplo")
+testLabel.place(x = 10, y = 160)
 
 chauButton = tk.Button(mainForm, text = "Chau", command = quit)
 chauButton.place(x = 330, y = 160)
