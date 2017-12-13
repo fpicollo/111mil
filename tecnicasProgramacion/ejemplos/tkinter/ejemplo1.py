@@ -33,7 +33,7 @@ def dialogos():
 	mb.showinfo("Respuesta", str(respuesta))
 
 def agregarEtiqueta():
-	tmpLabel = tk.Label(mainForm, text = "TMP LABEL")
+	tmpLabel = tk.Label(mainForm, text = "TD")
 	tmpLabel.place(x = 10, y = 120)
 
 mainForm = tk.Tk()

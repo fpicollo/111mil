@@ -21,14 +21,13 @@ def addPerson(contacts, surnameEntry, nameEntry, dniEntry, ageEntry, addressEntr
 	
 	surnameEntry.focus_set()
 
-def createPerson(root, contacts):
+def createPerson(mainForm, contacts):
 	_LEFT = 10
 	_TOP = 10
 
-	createPersonForm = tk.Toplevel(root)
+	createPersonForm = tk.Toplevel(mainForm)
 	createPersonForm.geometry("430x470")
 	createPersonForm.title("Alta de Persona")
-	centerForm(createPersonForm)
 	createPersonForm.grab_set()
 	
 	surnameLabel = tk.Label(createPersonForm, text = "Apellido:")
