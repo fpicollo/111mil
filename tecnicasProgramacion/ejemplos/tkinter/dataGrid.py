@@ -7,14 +7,14 @@ from tkinter import simpledialog as sd
 
 mainForm = tk.Tk()
 mainForm.title("Ejemplo Grid")
-mainForm.geometry("310x270")
+mainForm.geometry("325x270")
 
 def cargarDatos():
 	persona = {}
 	
-	persona["apellido"] = sd.askstring("Datos Personales", "Ingrese Apellido")
-	persona["nombre"] = sd.askstring("Datos Personales", "Ingrese Nombre")
-	persona["telefono"] = sd.askstring("Datos Personales", "Ingrese Teléfono")
+	persona["apellido"] = "German"
+	persona["nombre"] = "Basisty"
+	persona["telefono"] = "20849468"
 	
 	agenda.append(persona)
 	
@@ -26,6 +26,11 @@ def cargarDatos():
 agenda = []
 
 dataGrid = ttk.Treeview(mainForm)
+
+scrollbar_vertical = ttk.Scrollbar(mainForm, orient='vertical', command = dataGrid.yview)
+scrollbar_vertical.place(x = 306, y = 5, height = 220)
+dataGrid.configure(yscrollcommand=scrollbar_vertical.set)
+
 dataGrid["columns"]=("A", "B")
 dataGrid.column("#0", width=100)
 dataGrid.heading("#0", text='Apellido')
