@@ -1,6 +1,6 @@
 CREATE TABLE  persona (
 	dni         integer,
-    nombre      text
+   	nombre      text
 );
 
 CREATE OR REPLACE FUNCTION trg_alta_persona()
