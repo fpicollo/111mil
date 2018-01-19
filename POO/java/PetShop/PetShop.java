@@ -18,7 +18,7 @@ public class PetShop {
 		System.out.println(myDog.getAge());
 		System.out.println(myDog.getWeigth());
 		
-		myDog.poop(4);
+		myDog.poop(2);
 		System.out.println(myDog.getWeigth());
 	}
 }
