@@ -1,6 +1,6 @@
 
 CREATE TABLE student (
-	dni                           integer PRIMARY KEY REFERENCES person(dni),
+	dni                           integer UNIQUE REFERENCES person(dni),
 	inscription_date              date NOT NULL DEFAULT now(),
-	file_number                   serial NOT NULL UNIQUE
+	file_number                   serial PRIMARY KEY
 );
