@@ -32,3 +32,18 @@ CREATE OR REPLACE FUNCTION student_get_file_number (
 $$
   SELECT file_number(p_student);
 $$ LANGUAGE sql IMMUTABLE STRICT;
+
+
+CREATE OR REPLACE FUNCTION student_get_bill (
+  IN p_student                 student
+) RETURNS double precision AS
+$$
+  SELECT
+    sum(c.price)
+  FROM
+    student s
+    INNER JOIN is_student_of iso ON iso.student = s.file_number
+    INNER JOIN course c ON c.code = iso.course
+  WHERE
+    s = p_student;
+$$ LANGUAGE sql STABLE STRICT;
