@@ -1,0 +1,18 @@
+PARA COMPILAR:
+
+mvn clean compile
+
+PARA EJECUTAR DESDE MAVEN:
+
+mvn clean compile excec:java
+
+PARA EMPAQUETAR:
+
+mvn clean compile package
+
+
+RECORDAR QUE EL RESULTADO DE LA COMPILACION QUEDA DENTRO DEL DIRECTORIO target.
+
+Para ejecutar el jar:
+
+java -jar xxxxxxxxx.jar
